@@ -1,0 +1,28 @@
+Transaction : 
+
+
+
+Additional : 
+- opex_account hanya yang ada pada transactional di tahun yang sama 
+
+
+
+Transfer : 
+opex_account yang akan di transfer hanya ada berdasarkan transaction di 
+tahun yang sama 
+
+opex account yang akan di ambil hanya ada yang berdasarkan transaction di
+tahun yang sama DAN 
+
+
+
+Realization : 
+column : 
+- nama_opex ( berdasarkan yang sudah dimasukan di menu transaction ) - opex_trid
+- kode ( department or division ) 
+- 
+- aktifitas ( detail activity dimasukkan berupa detail ) 
+- budget ( berdasarkan yang sudah dimasukkan di menu transaction ) 
+- ammount : tidak boleh melebihi dari budget 
+- approve, jika division mengapprove ( submit ) maka yang di opex_detail akan berkurang 
+berdasarkan budget 

@@ -1,0 +1,19 @@
+catatan 15
+
+- submit , diganti jadi approve button/column nya 
+- approve, jika division mengapprove ( submit ) maka yang di opex_detail akan berkurang 
+berdasarkan budget 
+
+- add additional , transfer, update 
+redirect ke list masing - masing 
+
+- request opex per department bisa dilakukan banyak department di tahun yang sama 
+dan semua request hanya bisa dilihat oleh department itu sendiri
+
+- request budget di tahun sebelumnya  tidak di tampilkan edit dan delete nya 
+
+Module users 
+- perbaiki lagi 
+
+ada fitur edit profile
+Edit Profile 
