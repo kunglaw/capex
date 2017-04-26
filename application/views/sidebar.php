@@ -1,52 +1,56 @@
 <?php
 	$name_session  = $this->session->userdata("name");
-	$email_session = $this->session->userdata("email"); 
+	$email_session = $this->session->userdata("email");
 	$kode_session  = $this->session->userdata("kode");
 	$role_session  = $this->session->userdata("role");
 	$photo_session = $this->session->userdata("photo");
-	
+
 	$uri1 = $this->uri->segment(1);
-	
+	$this->load->model("master/department_model");
+	$department = $this->department_model->detail_department($kode_session);
+
 	$active_dashboard = "";
 	$active_opex = "";
 	$active_master = "";
-	
+
 	if($uri1 == "dashboard")
 	{
-		$active_dashboard = "active";	
+		$active_dashboard = "active";
 	}
 	else if($uri1 == "opex")
 	{
-		$active_opex = "active";	
+		$active_opex = "active";
 	}
 	else if($uri1 == "master" || $uri1 == "users")
 	{
 		$active_master = "active";
 	}
-	
-	
-	
+
+
+
 ?>
 <nav class="navbar-default navbar-static-side" role="navigation">
     <div class="sidebar-collapse">
         <ul class="nav" id="side-menu">
             <li class="nav-header">
-                <div class="dropdown profile-element"> 
+                <div class="dropdown profile-element">
                     <span>
                     	<center>
                         <img alt="image" class="img-circle" src="<?=base_url("resources/upload/$photo_session")?>" width="120" height="120"/>
                         </center>
                     </span>
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <span class="clear"> <span class="block m-t-xs"> 
+                        <span class="clear"> <span class="block m-t-xs">
                         	<strong class="font-bold"><?=$name_session?></strong>
-                        </span> 
-                        <span class="text-muted text-xs block"><?=$role_session?> 
+
+                        </span>
+												<span><?=$department["department"]?>  </span>
+                        <span class="text-muted text-xs block"><?=$role_session?>
                         <b class="caret"></b></span>
                     </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
                         <li><a href="#">Profile</a></li>
-                       
+
                         <li class="divider"></li>
                         <li><a href="<?=base_url("users/users_process/logout")?>">Logout</a></li>
                     </ul>
@@ -57,7 +61,7 @@
             </li>
             <li class="<?=$active_dashboard?>">
             	 <a href="<?=base_url("dashboard")?>"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard</span></a>
-            
+
             </li>
             <li class="<?=$active_opex?>">
                 <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Opex</span> <span class="fa arrow"></span></a>
@@ -67,7 +71,7 @@
                     <li><a href="<?=base_url("opex/additional")?>">Additional</a></li>
                     <li><a href="<?=base_url("opex/transfer")?>"> Transfer / Switching </a></li>
                     <li><a href="<?=base_url("opex/realization")?>"> Realization </a></li>
-                   
+
                 </ul>
             </li>
             <li class="<?=$active_master?>">
@@ -77,13 +81,13 @@
                 	<li><a href="<?=base_url("master/division");?>"> Division </a></li>
                     <li ><a href="<?=base_url("master/department")?>"> Department </a></li>
                     <li><a href="<?=base_url("users/user_list")?>"> Users </a></li>
-                   
+
                 </ul>
-            
-            
+
+
             </li>
-            
-            
+
+
         </ul>
 
     </div>
