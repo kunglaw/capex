@@ -133,16 +133,19 @@
 			$budget		 = $this->input->post("budget");
 			$kode		 = $this->input->post("kode_department");
 			$year 		 = $this->input->post("year");
+			$reason 	 = $this->input->post("reason");
 			
 			$this->form_validation->set_rules("opex_trd_id","Opex detail","required");
 			$this->form_validation->set_rules("budget","Budget","required");
 			$this->form_validation->set_rules("year","Year","required");
+			$this->form_validation->set_rules("reason","Reason","required");
 			
 			if($this->form_validation->run() == TRUE)
 			{
 				$arr["opex_trd_id"] = $opex_trd_id;
 				$arr["kode"] 		= $kode;
 				$arr["budget"] 		= $budget;
+				$arr["reason"]		= $reason;
 				
 				$this->am->insert_additional($arr);
 				
@@ -170,6 +173,7 @@
 			$budget		 = $this->input->post("budget");
 			$kode		 = $this->input->post("kode_department");
 			$year 		 = $this->input->post("year");
+			$reason		 = $this->input->post("reason");
 			
 			//print_r($_POST);
 			
@@ -177,6 +181,7 @@
 			$this->form_validation->set_rules("opex_trd_id","Opex detail","required");
 			$this->form_validation->set_rules("budget","Budget","required");
 			$this->form_validation->set_rules("year","Year","required");
+			$this->form_validation->set_rules("reason","Reason","required");
 			
 			if($this->form_validation->run() == TRUE)
 			{
@@ -184,6 +189,7 @@
 				$arr["opex_trd_id"] = $opex_trd_id;
 				$arr["kode"] 		= $kode;
 				$arr["budget"] 		= $budget;
+				$arr["reason"]		= $reason;
 				
 				$this->am->update_additional($arr);
 				

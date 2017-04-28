@@ -89,11 +89,11 @@
             </tr>
         </table>
         
-        <a class="btn btn-primary" id="add-opex-detail-btn"> Add new opex </a>
+        <!-- <a class="btn btn-primary" id="add-opex-detail-btn"> Add new opex </a> -->
         
-        <!-- <a class="btn btn-primary" id="add-additional-btn"> Add Additional</a>
+        <a class="btn btn-primary" id="add-additional-btn"> Add Additional</a>
         
-        <a class="btn btn-primary" id="add-transfer-btn"> Add Transfer </a> -->
+        <!-- <a class="btn btn-primary" id="add-transfer-btn"> Add Transfer </a> -->
         <br><br>
         
         <div class="dataTables_wrapper">

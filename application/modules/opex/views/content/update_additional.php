@@ -65,6 +65,10 @@
                       <input type="text" name="budget" value="" class="form-control">
                   </div>
                 </div>
+                <div class="form-group">
+                  <label> Reason </label>
+                  <input type="text" name="reason" id="reason" class="form-control">
+                </div>
                  <span class="clearfix"></span>
               </div>
               <div class="modal-footer">
