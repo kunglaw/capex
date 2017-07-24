@@ -58,6 +58,7 @@
 			$kode 		 = $arr["kode"];
 			$budget		 = $arr["budget"];
 			$reason		 = $arr["reason"];
+			$year		 = $arr["year"];
 			
 			$username 	 = $this->session->userdata("email");
 			$user_agent  = $this->input->user_agent();
@@ -68,6 +69,7 @@
 			$str .= "opex_trd_id = '$opex_trd_id'		,";
 			$str .= "reason		 = '$reason'			,";
 			$str .= "budget		 = '$budget'			,";
+			$str .= "year		 = '$year'				,";
 			$str .= "kode		 = '$kode'				,";
 			$str .= "username	 = '$username'			,";
 			$str .= "create_date = now()				,";
@@ -87,6 +89,7 @@
 			$kode 		 = $arr["kode"];
 			$budget		 = $arr["budget"];
 			$reason		 = $arr["reason"];
+			$year		 = $arr["year"];
 			
 			$username 	 = $this->session->userdata("email");
 			$user_agent  = $this->input->user_agent();
@@ -97,6 +100,7 @@
 			$str .= "opex_trd_id = '$opex_trd_id'		,";
 			$str .= "reason		 = '$reason'			,";
 			$str .= "budget		 = '$budget'			,";
+			$str .= "year		 = '$year'				,";
 			$str .= "kode		 = '$kode'				,";
 			$str .= "username	 = '$username'			,";
 			//$str .= "create_date = now()				,";
@@ -113,6 +117,37 @@
 		{
 			$str = "DELETE FROM additional_tr WHERE add_tr_id = '$add_tr_id' ";
 			$q 	 = $this->db->query($str); 	
+			
+		}
+		
+		function total_add_account_peryear($no_acc_opex,$year)
+		{
+			$kode_department = $this->session->userdata("kode");
+			
+			$str = "SELECT SUM(a.budget) as total_account
+			
+			FROM additional_tr a , opex_tr_detail b 
+			
+			WHERE a.opex_trd_id = b.opex_trd_id AND a.year = '$year' 
+			AND b.no_acc_opex = '$no_acc_opex' AND a.kode = '$kode_department' ";
+			$q2 = $this->db->query($str);
+			$f2 = $q2->row_array();
+			
+			return $f2["total_account"];
+			
+		}
+		
+		function total_add_peryear($year)
+		{
+			$kode_department = $this->session->userdata("kode");
+			
+			$str = "SELECT SUM(budget) as total_add, year, kode FROM additional_tr WHERE year = '$year' AND kode = '$kode_department' ";
+			$q = $this->db->query($str);
+			$f = $q->row_array();
+			
+			return $f["total_add"];
+			
+			
 			
 		}
 		

@@ -1,6 +1,6 @@
 <?php
 
-	class Opex extends MX_COntroller{
+	class Opex extends MX_Controller{
 
 		private $role_sess;
 
@@ -86,7 +86,7 @@
 		{
 			$data["year"]	= $this->input->post("year");
 			$data["months"] = $this->config->item("months");
-			$data["opex_acc"] = $this->opex_model->opex_ms_list();
+			$data["opex_acc"] = $this->opex_model->opex_ms_department_list(); // opex_ms_list
 			//$data["opex_acc"] = $this->opex_model->opex_acc_not_trd($data["year"]);
 
 			//print_r($data["opex_acc"]); exit;

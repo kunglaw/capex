@@ -77,8 +77,8 @@
 			data:"year="+<?=$year_uri?>,
 			success: function(dt)
 			{
-				$(".opex-temp").html("");
-				$(".opex-temp").html(dt);	
+				$("#additional-temp").html("");
+				$("#additional-temp").html(dt);	
 				
 			}
 			

@@ -45,7 +45,7 @@
                         <span class="clear"> <span class="block m-t-xs">
                         	<strong class="font-bold"><?=$name_session?></strong>
 
-                        </span>
+                        </span></span>
 												<span><?=$department["department"]?>  </span>
                         <span class="text-muted text-xs block"><?=$role_session?>
                         <b class="caret"></b></span>
@@ -68,12 +68,12 @@
             <li class="<?=$active_opex?>">
                 <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Opex</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                	<li><a href="<?=base_url("opex");?>"> List </a></li>
+                	<!-- <li><a href="<?=base_url("opex");?>"> List </a></li> -->
                     <li ><a href="<?=base_url("opex/create")?>"> Create new </a></li>
                     <li><a href="<?=base_url("opex/additional")?>">Additional</a></li>
-                    <li><a href="<?=base_url("opex/transfer")?>"> Transfer / Switching </a></li>
+                    <!-- <li><a href="<?=base_url("opex/transfer")?>"> Transfer / Switching </a></li> -->
                     <li><a href="<?=base_url("opex/realization")?>"> Realization </a></li>
-                    <li><a href="#"> Report </a></li>
+                    <li><a href="<?=base_url("opex/report")?>"> Report </a></li>
 
 
                 </ul>
@@ -82,9 +82,9 @@
             	 <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Master</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                 	<li><a href="<?=base_url("master/opex_account")?>"> Opex Account </a></li>
-                	<li><a href="<?=base_url("master/division");?>"> Division </a></li>
+                	<!-- <li><a href="<?=base_url("master/division");?>"> Division </a></li>
                     <li ><a href="<?=base_url("master/department")?>"> Department </a></li>
-                    <li><a href="<?=base_url("users/user_list")?>"> Users </a></li>
+                    <li><a href="<?=base_url("users/user_list")?>"> Users </a></li> -->
 
                 </ul>
 

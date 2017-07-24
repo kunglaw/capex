@@ -5,11 +5,12 @@
 		function __construct()
 		{
 			parent::__construct();	
+			$this->load->model("opex_model");
 		}
 		
 		function list_relization()
 		{
-			$kode_department = $this->session->userdata("kode_department");
+			$kode_department = $this->session->userdata("kode");
 			
 			$str = "SELECT * FROM realization_tr WHERE kode = '$kode_department'";
 			$q = $this->db->query($str);
@@ -60,6 +61,7 @@
 			$kode	  	 = $arr["kode_department"];
 			$amount		 = $arr["amount"];
 			$activity 	 = $arr["activity"];
+			$year	     = $arr["year"];
 			
 			$ip_address	 = $this->input->ip_address();
 			$user_agent  = $this->input->user_agent();
@@ -70,6 +72,7 @@
 			$str .= "username		= '$username'			,";
 			$str .= "activity		= '$activity'			,";
 			$str .= "amount 		= '$amount'				,";
+			$str .= "year			= '$year'				,";
 			$str .= "ip_address		= '$ip_address'			,";
 			$str .= "user_agent		= '$user_agent'			,";
 			$str .= "create_date	= now()					 ";
@@ -87,6 +90,7 @@
 			$kode	  	 = $arr["kode_department"];
 			$amount		 = $arr["amount"];
 			$activity 	 = $arr["activity"];
+			$year		 = $arr["year"];
 			
 			$ip_address	 = $this->input->ip_address();
 			$user_agent  = $this->input->user_agent();
@@ -97,12 +101,38 @@
 			$str .= "username		= '$username'			,";
 			$str .= "activity		= '$activity'			,";
 			$str .= "amount 		= '$amount'				,";
+			$str .= "year			= '$year'				,";
 			$str .= "ip_address		= '$ip_address'			,";
 			$str .= "user_agent		= '$user_agent'			 ";
 			
 			$str .= "WHERE id_realization = '$id_realization' ";
 			
 			$q = $this->db->query($str);
+			
+		}
+		
+		function total_real_account_peryear($no_acc_opex,$year)
+		{
+			$kode_department = $this->session->userdata("kode");
+			
+			$str = "SELECT SUM(a.amount) as total_account, b.opex_trid, b.opex_trd_id, a.year, b.no_acc_opex  FROM realization_tr a , opex_tr_detail b WHERE a.opex_trd_id = b.opex_trd_id AND a.year = '$year' AND b.no_acc_opex = '$no_acc_opex' AND a.kode = '$kode_department' ";
+			$q2 = $this->db->query($str);
+			$f2 = $q2->row_array();
+			
+			return $f2["total_account"];
+			
+		}
+		
+		function total_real_peryear($year)
+		{
+			
+			$kode_department = $this->session->userdata("kode");
+			
+			$str = "SELECT SUM(amount) as total_real, year, kode FROM realization_tr WHERE year = '$year' AND kode = '$kode_department' ";
+			$q = $this->db->query($str);
+			$f = $q->row_array();
+			
+			return $f["total_real"];
 			
 		}
 		

@@ -146,6 +146,7 @@
 				$arr["kode"] 		= $kode;
 				$arr["budget"] 		= $budget;
 				$arr["reason"]		= $reason;
+				$arr["year"]		= $year;
 				
 				$this->am->insert_additional($arr);
 				
@@ -162,6 +163,16 @@
 			
 			echo json_encode($result);
 	
+		}
+		
+		function load_additional()
+		{
+			$add_tr_id = $this->input->post("add_tr_id",TRUE);
+			
+			$dt = $this->am->detail_additional($add_tr_id);
+			
+			echo json_encode($dt);
+			
 		}
 		
 		function update_additional_process()
@@ -190,6 +201,7 @@
 				$arr["kode"] 		= $kode;
 				$arr["budget"] 		= $budget;
 				$arr["reason"]		= $reason;
+				$arr["year"]		= $year;
 				
 				$this->am->update_additional($arr);
 				
