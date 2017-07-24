@@ -14,13 +14,34 @@
 			success: function(data)
 			{
 				$("#opex_trd_id").val(data.opex_trd_id);
-				
 			}
 			
 		});
 		
 	}
 	
+	function load_additional()
+	{
+		var add_tr_id = <?=$add_detail["add_tr_id"]?>;
+		
+		$.ajax({
+			
+			type:"POST",
+			url:"<?=base_url("opex/additional/load_additional")?>",
+			data:"add_tr_id="+add_tr_id,
+			dataType:"JSON",
+			success: function(data)
+			{
+				
+				$("#reason").val(data.reason);
+			}
+			
+			
+		});
+		
+	}
+	
+	load_additional();
 	load_opex_trd();
 
 </script>
@@ -46,10 +67,16 @@
                 	<label> Opex Account </label>
                     <select name="opex_account" id="opex_account" class="form-control">
                       <?php foreach($opex_acc as $row){ 
-					  	$ocm = $this->ocm->get_by_id_row($row["no_acc_opex"]);
+					    //$dept = $this->opex_model->opex_ms_department_list();
+							
+							//if($dept["no_acc_opex"] == $row["no_acc_opex"])
+							//{
+					  			$ocm = $this->ocm->get_by_id_row($row["no_acc_opex"]);
+						
 					  ?>	
-                        <option value="<?=$row["no_acc_opex"]?>"> <?=$ocm["account_name"]?> | <?=$ocm["detail"]?></option>
-                      <?php } ?>
+                        <option value="<?=$row["no_acc_opex"]?>"> <?=$ocm["detail"]?></option>
+                      <?php //} 
+					  }?>
                     </select>
                 </div>
                 
@@ -66,6 +93,10 @@
                       <label> Amount Budget </label>
                       <input type="text" name="budget" value="<?=$add_detail["budget"]?>" class="form-control">
                   </div>
+                </div>
+                <div class="form-group">
+                  <label> Reason </label>
+                  <input type="text" name="reason" id="reason" class="form-control">
                 </div>
                  <span class="clearfix"></span>
               </div>
@@ -107,13 +138,15 @@
 	
 	$("#month").change(function(){
 		
-		load_opex_trd();	
+		load_opex_trd();
+		load_additional();	
 	
 	});
 	
 	$("#opex_account").change(function(){
 		
-		load_opex_trd();	
+		load_opex_trd();
+		load_additional();	
 	})
 
 

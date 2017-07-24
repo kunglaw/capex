@@ -1,5 +1,5 @@
 <script>
-	
+
 	function opex_tr_delete(opex_trid,no_acc_opex)
 	{
 		//alert(opex_trid+" -- "+no_acc_opex);

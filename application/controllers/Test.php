@@ -9,6 +9,12 @@
 			
 		}
 		
+		function index()
+		{
+			
+			
+		}
+		
 		function total_budget()
 		{
 			$this->load->model("opex/opex_model");
@@ -21,6 +27,16 @@
 			$this->load->model("opex/opex_model");
 			$total = $this->opex_model->total_budget_opex_trd(20,array());	
 			echo number_format($total);
+			
+		}
+		
+		
+		
+		function view_session()
+		{
+			$aa = $this->session->userdata("all_userdata");
+			
+			print_r($aa);	
 			
 		}
 		

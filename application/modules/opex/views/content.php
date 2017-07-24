@@ -2,7 +2,7 @@
 <div class="row wrapper">
     <div class="row wrapper">
     	
-    	<h3> List opex <h3>
+    	<h3> List opex </h3>
         <hr>
     	
         <table class="table table-bordered table-stripped" id="department-table">

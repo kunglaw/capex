@@ -1,4 +1,6 @@
 <?php
+ $id_session 	   = $this->session->userdata("id_user");
+ $username 			 = $this->session->userdata("username");
 	$name_session  = $this->session->userdata("name");
 	$email_session = $this->session->userdata("email");
 	$kode_session  = $this->session->userdata("kode");
@@ -43,13 +45,21 @@
                         <span class="clear"> <span class="block m-t-xs">
                         	<strong class="font-bold"><?=$name_session?></strong>
 
+<<<<<<< HEAD
+                        </span></span>
+=======
                         </span>
+>>>>>>> capex/master
 												<span><?=$department["department"]?>  </span>
                         <span class="text-muted text-xs block"><?=$role_session?>
                         <b class="caret"></b></span>
                     </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
+<<<<<<< HEAD
+                        <li><a href="<?=base_url("users/update/$id_session")?>">Profile</a></li>
+=======
                         <li><a href="#">Profile</a></li>
+>>>>>>> capex/master
 
                         <li class="divider"></li>
                         <li><a href="<?=base_url("users/users_process/logout")?>">Logout</a></li>
@@ -66,11 +76,16 @@
             <li class="<?=$active_opex?>">
                 <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Opex</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                	<li><a href="<?=base_url("opex");?>"> List </a></li>
-                    <li ><a href="<?=base_url("opex/create")?>">Transaction</a></li>
+                	<!-- <li><a href="<?=base_url("opex");?>"> List </a></li> -->
+                    <li ><a href="<?=base_url("opex/create")?>"> Create new </a></li>
                     <li><a href="<?=base_url("opex/additional")?>">Additional</a></li>
-                    <li><a href="<?=base_url("opex/transfer")?>"> Transfer / Switching </a></li>
+                    <!-- <li><a href="<?=base_url("opex/transfer")?>"> Transfer / Switching </a></li> -->
                     <li><a href="<?=base_url("opex/realization")?>"> Realization </a></li>
+<<<<<<< HEAD
+                    <li><a href="<?=base_url("opex/report")?>"> Report </a></li>
+
+=======
+>>>>>>> capex/master
 
                 </ul>
             </li>
@@ -78,9 +93,13 @@
             	 <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Master</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                 	<li><a href="<?=base_url("master/opex_account")?>"> Opex Account </a></li>
-                	<li><a href="<?=base_url("master/division");?>"> Division </a></li>
+                	<!-- <li><a href="<?=base_url("master/division");?>"> Division </a></li>
                     <li ><a href="<?=base_url("master/department")?>"> Department </a></li>
+<<<<<<< HEAD
+                    <li><a href="<?=base_url("users/user_list")?>"> Users </a></li> -->
+=======
                     <li><a href="<?=base_url("users/user_list")?>"> Users </a></li>
+>>>>>>> capex/master
 
                 </ul>
 

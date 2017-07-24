@@ -16,7 +16,11 @@
  *
  * @author adi
  */
+<<<<<<< HEAD
+class Test extends MX_Controller{
+=======
 class Test extends CI_Controller{
+>>>>>>> capex/master
     //put your code here
     public function __construct() {
         parent::__construct();
@@ -31,4 +35,24 @@ class Test extends CI_Controller{
 		
 		$this->load->view("dummy/loading-state");
     }
+<<<<<<< HEAD
+	
+	function total_month_year()
+	{
+		$this->load->model("opex/opex_model");
+		
+		
+		$this->opex_model->total_month_peryear("January",2017);	
+		
+	}
+	
+	function view_session()
+	{
+		$aa = $this->session->all_userdata();
+			
+			print_r($aa);	
+				
+	}
+=======
+>>>>>>> capex/master
 }

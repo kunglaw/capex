@@ -37,7 +37,9 @@
 				leftColumns: 1,
 				rightColumns: 1
 			}
-		})
+		});
+		
+	
 	});
 
 </script>

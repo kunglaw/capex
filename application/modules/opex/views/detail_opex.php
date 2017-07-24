@@ -42,7 +42,7 @@
                 <td colspan="2" width="50" style="width:80px"></td>
                 
                 <td colspan="2"> 
-               		Status:
+               		
                 </td>
             </tr>
             <tr>
@@ -89,11 +89,11 @@
             </tr>
         </table>
         
-        <a class="btn btn-primary" id="add-opex-detail-btn"> Add opex </a>
+        <a class="btn btn-primary" id="add-opex-detail-btn"> Add new opex </a>
         
-        <a class="btn btn-primary" id="add-additional-btn"> Add Additional</a>
+        <!-- <a class="btn btn-primary" id="add-additional-btn"> Add Additional</a>
         
-        <a class="btn btn-primary" id="add-transfer-btn"> Add Transfer </a>
+        <a class="btn btn-primary" id="add-transfer-btn"> Add Transfer </a> -->
         <br><br>
         
         <div class="dataTables_wrapper">
@@ -106,7 +106,7 @@
                         <th style="width:76px;"><?=$row?></th>
                         <?php } ?>
                         
-                        <th>Action</th>
+                        <!-- <th>Action</th> -->
                     </tr>
                 </thead>
                 <tbody>
@@ -128,7 +128,7 @@
                         <td style="width:76px;"><?=number_format($dt["budget"])?></td>
                         <?php } ?>
                         
-                        <td class="">
+                        <!-- <td class="">
                         	<button type="button" class="btn btn-primary" title="<?=$row_detail['opex_trid']?>" onClick="
                             opex_tr_delete(<?=$row_detail['opex_trid']?>,
 							'<?=$row_detail["no_acc_opex"]?>')">
@@ -136,7 +136,7 @@
                             <i class="fa fa-trash"></i></button>
                             
                            
-                         </td>	
+                         </td> -->
                     </tr>
                     <?php } ?>
                     <?php }else{ ?>
