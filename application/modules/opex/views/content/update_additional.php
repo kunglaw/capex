@@ -65,10 +65,13 @@
                       <input type="text" name="budget" value="" class="form-control">
                   </div>
                 </div>
+<<<<<<< HEAD
                 <div class="form-group">
                   <label> Reason </label>
                   <input type="text" name="reason" id="reason" class="form-control">
                 </div>
+=======
+>>>>>>> capex/master
                  <span class="clearfix"></span>
               </div>
               <div class="modal-footer">
