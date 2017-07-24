@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 15, 2017 at 05:37 AM
+-- Generation Time: Jul 24, 2017 at 07:03 PM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -30,6 +30,8 @@ CREATE TABLE IF NOT EXISTS `additional_tr` (
   `add_tr_id` int(11) NOT NULL,
   `opex_trd_id` int(11) NOT NULL,
   `budget` int(15) NOT NULL,
+  `year` int(5) NOT NULL,
+  `reason` text NOT NULL,
   `submit` varchar(80) NOT NULL,
   `kode` varchar(10) NOT NULL,
   `username` varchar(50) NOT NULL,
@@ -37,18 +39,15 @@ CREATE TABLE IF NOT EXISTS `additional_tr` (
   `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `user_agent` varchar(225) NOT NULL,
   `ip_address` varchar(16) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `additional_tr`
 --
 
-INSERT INTO `additional_tr` (`add_tr_id`, `opex_trd_id`, `budget`, `submit`, `kode`, `username`, `create_date`, `last_update`, `user_agent`, `ip_address`) VALUES
-(1, 37, 5000000, 'handoyo_division@gmail.com', 'KC', 'alhusna901@gmail.com', '2016-12-31 00:09:50', '2017-01-18 16:30:41', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1'),
-(3, 49, 8000000, 'handoyo_division@gmail.com', 'KC', 'alhusna901@gmail.com', '2016-12-31 11:55:16', '2017-01-18 16:37:28', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1'),
-(4, 40, 200000, '', 'KE', 'marina@gmail.com', '2016-12-31 14:21:01', '2016-12-31 07:21:01', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '192.168.1.101'),
-(5, 205, 640000, '', 'KC', 'alhusna901@gmail.com', '2017-01-13 22:54:32', '2017-01-13 16:08:26', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1'),
-(6, 350, 4600056, '', 'KE', 'marina@gmail.com', '2017-02-02 23:51:18', '2017-02-02 16:51:18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36', '::1');
+INSERT INTO `additional_tr` (`add_tr_id`, `opex_trd_id`, `budget`, `year`, `reason`, `submit`, `kode`, `username`, `create_date`, `last_update`, `user_agent`, `ip_address`) VALUES
+(1, 37, 1200000, 2017, 'ada penambahan orang', '', 'HD', 'alhusna901@gmail.com', '2017-06-04 11:54:37', '2017-06-04 05:46:52', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0', '::1'),
+(2, 37, 780000, 2017, 'belajar ke yunani terkait ekonomi', '', 'HD', 'alhusna901@gmail.com', '2017-06-05 05:19:45', '2017-06-04 22:19:45', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0', '::1');
 
 -- --------------------------------------------------------
 
@@ -90,6 +89,80 @@ INSERT INTO `department_ms` (`kode_department`, `department`, `kode_div`, `descr
 ('HC', 'FINANCE & ACCOUNTING', 'H', ''),
 ('HD', 'IT', 'H', ''),
 ('IA', 'SALES ADMIN', 'I', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `detail_department_opex_acc`
+--
+
+CREATE TABLE IF NOT EXISTS `detail_department_opex_acc` (
+  `id_ddoa` int(11) NOT NULL,
+  `kode_department` varchar(3) NOT NULL,
+  `no_acc_opex` varchar(20) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `detail_department_opex_acc`
+--
+
+INSERT INTO `detail_department_opex_acc` (`id_ddoa`, `kode_department`, `no_acc_opex`) VALUES
+(1, 'EB', '704.00.001'),
+(2, 'EB', '706.00.001'),
+(3, 'EB', '707.01.001'),
+(4, 'EB', '707.04.001'),
+(5, 'EB', '712.02.001'),
+(6, 'EB', '713.00.001'),
+(7, 'EB', '714.00.001'),
+(9, 'EB', '724.04.001'),
+(10, 'EB', '726.01.001'),
+(11, 'EB', '726.02.001'),
+(12, 'EB', '726.04.001'),
+(13, 'EB', '726.05.001'),
+(14, 'EB', '726.06.001'),
+(15, 'EB', '726.07.001'),
+(16, 'EB', '726.08.001'),
+(17, 'EB', '726.09.001'),
+(18, 'EB', '726.99.001'),
+(19, 'EB', '728.00.001'),
+(20, 'EA', '704.00.001'),
+(21, 'EA', '706.00.001'),
+(22, 'EA', '707.02.001'),
+(23, 'EA', '707.03.001'),
+(24, 'EA', '707.05.001'),
+(25, 'EA', '708.00.001'),
+(26, 'BE', '704.00.001'),
+(27, 'BE', '706.00.001'),
+(28, 'BE', '712.02.001'),
+(29, 'BE', '712.03.001'),
+(30, 'FA', '704.00.001'),
+(31, 'FA', '706.00.001'),
+(32, 'FA', '728.00.001'),
+(33, 'HD', '704.00.001'),
+(34, 'HD', '706.00.001'),
+(35, 'HD', '726.03.001'),
+(36, 'EB', '730.99.001'),
+(37, 'EB', '738.02.001'),
+(38, 'EB', '755.01.001'),
+(39, '', ''),
+(40, 'FA', '730.99.001'),
+(41, 'EA', '730.99.001'),
+(42, 'EA', '750.00.001'),
+(43, 'BE', '730.99.001'),
+(44, 'HD', '730.99.001'),
+(45, 'HC', '704.00.001'),
+(46, 'HC', '706.00.001'),
+(47, 'HC', '730.99.001'),
+(48, 'HC', '742.00.001'),
+(49, 'AA', '704.00.001'),
+(50, 'AA', '706.00.001'),
+(51, 'AA', '730.99.001'),
+(52, 'AA', '732.00.001'),
+(53, 'HA', '704.00.001'),
+(54, 'HA', '706.00.001'),
+(55, 'HA', '730.99.001'),
+(56, 'HA', '750.01.001'),
+(57, 'EB', '724.01.001');
 
 -- --------------------------------------------------------
 
@@ -208,18 +281,15 @@ CREATE TABLE IF NOT EXISTS `opex_tr` (
   `ip_address` varchar(16) NOT NULL,
   `user_agent` varchar(125) NOT NULL,
   `username` varchar(50) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `opex_tr`
 --
 
 INSERT INTO `opex_tr` (`opex_trid`, `year`, `kode_department`, `submit`, `total`, `create_date`, `last_update`, `ip_address`, `user_agent`, `username`) VALUES
-(20, 2015, 'KC', '', 0, '2016-12-26 05:14:34', '2016-12-26 12:14:34', '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', 'alhusna901@gmail.com'),
-(21, 2016, 'KC', '', 0, '2016-12-26 05:15:34', '2016-12-26 12:15:34', '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', 'alhusna901@gmail.com'),
-(22, 2017, 'KC', '', 0, '2017-01-03 16:18:22', '2017-01-03 23:18:22', '192.168.1.101', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', 'alhusna901@gmail.com'),
-(23, 2018, 'KC', '', 0, '2017-01-18 17:03:54', '2017-01-19 00:03:54', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36', 'alhusna901@gmail.com'),
-(27, 2017, 'KE', '', 0, '2017-01-29 11:22:54', '2017-01-29 18:22:54', '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', 'marina@gmail.com');
+(1, 2017, 'EB', '', 0, '2017-06-01 06:47:00', '2017-06-01 13:47:00', '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 OPR/45.0.2552.', 'syarahsiti@gmail.com'),
+(2, 2017, 'HD', '', 0, '2017-06-03 06:39:19', '2017-06-03 13:39:19', '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0', 'alhusna901@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -238,109 +308,73 @@ CREATE TABLE IF NOT EXISTS `opex_tr_detail` (
   `ip_address` varchar(16) NOT NULL,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `last_update` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=373 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `opex_tr_detail`
 --
 
 INSERT INTO `opex_tr_detail` (`opex_trd_id`, `opex_trid`, `year`, `month`, `budget`, `no_acc_opex`, `user_agent`, `ip_address`, `create_date`, `last_update`) VALUES
-(25, 20, 2015, 'January', 10000000, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-26 05:14:34', '2016-12-26 12:14:34'),
-(26, 20, 2015, 'February', 8000000, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-28 16:39:37', '2016-12-26 12:14:34'),
-(27, 20, 2015, 'March', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-26 05:14:34', '2016-12-26 12:14:34'),
-(28, 20, 2015, 'April', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-26 05:14:34', '2016-12-26 12:14:34'),
-(29, 20, 2015, 'May', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-26 05:14:34', '2016-12-26 12:14:34'),
-(30, 20, 2015, 'June', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-26 05:14:34', '2016-12-26 12:14:34'),
-(31, 20, 2015, 'July', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-26 05:14:34', '2016-12-26 12:14:34'),
-(32, 20, 2015, 'August', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-26 05:14:34', '2016-12-26 12:14:34'),
-(33, 20, 2015, 'September', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-26 05:14:34', '2016-12-26 12:14:34'),
-(34, 20, 2015, 'October', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-26 05:14:34', '2016-12-26 12:14:34'),
-(35, 20, 2015, 'November', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-26 05:14:34', '2016-12-26 12:14:34'),
-(36, 20, 2015, 'December', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-26 05:14:34', '2016-12-26 12:14:34'),
-(37, 21, 2016, 'January', 22000000, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-18 16:30:41', '2016-12-26 12:15:34'),
-(38, 21, 2016, 'February', 60000000, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-31 04:51:01', '2016-12-26 12:15:34'),
-(39, 21, 2016, 'March', 8005000, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-31 05:07:03', '2016-12-26 12:15:34'),
-(40, 21, 2016, 'April', 6800000, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-31 05:07:29', '2016-12-26 12:15:34'),
-(41, 21, 2016, 'May', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-26 05:15:34', '2016-12-26 12:15:34'),
-(42, 21, 2016, 'June', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-26 05:15:34', '2016-12-26 12:15:34'),
-(43, 21, 2016, 'July', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-26 05:15:34', '2016-12-26 12:15:34'),
-(44, 21, 2016, 'August', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-26 05:15:34', '2016-12-26 12:15:34'),
-(45, 21, 2016, 'September', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-26 05:15:34', '2016-12-26 12:15:34'),
-(46, 21, 2016, 'October', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-26 05:15:35', '2016-12-26 12:15:35'),
-(47, 21, 2016, 'November', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-26 05:15:35', '2016-12-26 12:15:35'),
-(48, 21, 2016, 'December', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-26 05:15:35', '2016-12-26 12:15:35'),
-(49, 21, 2016, 'January', 8000000, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-18 16:37:28', '2016-12-31 11:43:39'),
-(50, 21, 2016, 'February', 8500000, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-31 04:43:40', '2016-12-31 11:43:39'),
-(51, 21, 2016, 'March', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-31 04:43:39', '2016-12-31 11:43:39'),
-(52, 21, 2016, 'April', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-31 04:43:39', '2016-12-31 11:43:39'),
-(53, 21, 2016, 'May', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-31 04:43:39', '2016-12-31 11:43:39'),
-(54, 21, 2016, 'June', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-31 04:43:39', '2016-12-31 11:43:39'),
-(55, 21, 2016, 'July', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-31 04:43:39', '2016-12-31 11:43:39'),
-(56, 21, 2016, 'August', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-31 04:43:40', '2016-12-31 11:43:40'),
-(57, 21, 2016, 'September', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-31 04:43:40', '2016-12-31 11:43:40'),
-(58, 21, 2016, 'October', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-31 04:43:40', '2016-12-31 11:43:40'),
-(59, 21, 2016, 'November', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-31 04:43:40', '2016-12-31 11:43:40'),
-(60, 21, 2016, 'December', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2016-12-31 04:43:40', '2016-12-31 11:43:40'),
-(205, 22, 2017, 'January', 6900000, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-02-02 16:22:58', '2017-01-13 21:22:48'),
-(206, 22, 2017, 'February', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-02-01 16:27:08', '2017-01-13 21:22:48'),
-(207, 22, 2017, 'March', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-13 14:22:48', '2017-01-13 21:22:48'),
-(208, 22, 2017, 'April', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-13 14:22:48', '2017-01-13 21:22:48'),
-(209, 22, 2017, 'May', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-13 14:22:48', '2017-01-13 21:22:48'),
-(210, 22, 2017, 'June', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-13 14:22:48', '2017-01-13 21:22:48'),
-(211, 22, 2017, 'July', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-13 14:22:48', '2017-01-13 21:22:48'),
-(212, 22, 2017, 'August', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-13 14:22:48', '2017-01-13 21:22:48'),
-(213, 22, 2017, 'September', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-13 14:22:49', '2017-01-13 21:22:49'),
-(214, 22, 2017, 'October', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-13 14:22:49', '2017-01-13 21:22:49'),
-(215, 22, 2017, 'November', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-13 14:22:49', '2017-01-13 21:22:49'),
-(216, 22, 2017, 'December', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-13 14:22:49', '2017-01-13 21:22:49'),
-(217, 22, 2017, 'January', 43320000, '707.01.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-18 17:49:24', '2017-01-13 21:23:01'),
-(218, 22, 2017, 'February', 5040000, '707.01.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-13 14:23:13', '2017-01-13 21:23:01'),
-(219, 22, 2017, 'March', 0, '707.01.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-13 14:23:01', '2017-01-13 21:23:01'),
-(220, 22, 2017, 'April', 0, '707.01.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-13 14:23:01', '2017-01-13 21:23:01'),
-(221, 22, 2017, 'May', 0, '707.01.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-13 14:23:01', '2017-01-13 21:23:01'),
-(222, 22, 2017, 'June', 0, '707.01.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-13 14:23:01', '2017-01-13 21:23:01'),
-(223, 22, 2017, 'July', 0, '707.01.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-13 14:23:01', '2017-01-13 21:23:01'),
-(224, 22, 2017, 'August', 0, '707.01.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-13 14:23:01', '2017-01-13 21:23:01'),
-(225, 22, 2017, 'September', 0, '707.01.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-13 14:23:01', '2017-01-13 21:23:01'),
-(226, 22, 2017, 'October', 0, '707.01.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-13 14:23:01', '2017-01-13 21:23:01'),
-(227, 22, 2017, 'November', 0, '707.01.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-13 14:23:01', '2017-01-13 21:23:01'),
-(228, 22, 2017, 'December', 0, '707.01.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-13 14:23:01', '2017-01-13 21:23:01'),
-(301, 23, 2018, 'January', 70000000, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36', '::1', '2017-01-18 17:03:55', '2017-01-19 00:03:54'),
-(302, 23, 2018, 'February', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36', '::1', '2017-01-18 17:03:54', '2017-01-19 00:03:54'),
-(303, 23, 2018, 'March', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36', '::1', '2017-01-18 17:03:55', '2017-01-19 00:03:55'),
-(304, 23, 2018, 'April', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36', '::1', '2017-01-18 17:03:55', '2017-01-19 00:03:55'),
-(305, 23, 2018, 'May', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36', '::1', '2017-01-18 17:03:55', '2017-01-19 00:03:55'),
-(306, 23, 2018, 'June', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36', '::1', '2017-01-18 17:03:55', '2017-01-19 00:03:55'),
-(307, 23, 2018, 'July', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36', '::1', '2017-01-18 17:03:55', '2017-01-19 00:03:55'),
-(308, 23, 2018, 'August', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36', '::1', '2017-01-18 17:03:55', '2017-01-19 00:03:55'),
-(309, 23, 2018, 'September', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36', '::1', '2017-01-18 17:03:55', '2017-01-19 00:03:55'),
-(310, 23, 2018, 'October', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36', '::1', '2017-01-18 17:03:55', '2017-01-19 00:03:55'),
-(311, 23, 2018, 'November', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36', '::1', '2017-01-18 17:03:55', '2017-01-19 00:03:55'),
-(312, 23, 2018, 'December', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36', '::1', '2017-01-18 17:03:55', '2017-01-19 00:03:55'),
-(349, 27, 2017, 'January', 6900000, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-29 11:22:54', '2017-01-29 18:22:54'),
-(350, 27, 2017, 'February', 3400650, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-02-02 16:41:00', '2017-01-29 18:22:54'),
-(351, 27, 2017, 'March', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-29 11:22:54', '2017-01-29 18:22:54'),
-(352, 27, 2017, 'April', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-29 11:22:54', '2017-01-29 18:22:54'),
-(353, 27, 2017, 'May', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-29 11:22:54', '2017-01-29 18:22:54'),
-(354, 27, 2017, 'June', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-29 11:22:54', '2017-01-29 18:22:54'),
-(355, 27, 2017, 'July', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-29 11:22:54', '2017-01-29 18:22:54'),
-(356, 27, 2017, 'August', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-29 11:22:54', '2017-01-29 18:22:54'),
-(357, 27, 2017, 'September', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-29 11:22:54', '2017-01-29 18:22:54'),
-(358, 27, 2017, 'October', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-29 11:22:54', '2017-01-29 18:22:54'),
-(359, 27, 2017, 'November', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-29 11:22:54', '2017-01-29 18:22:54'),
-(360, 27, 2017, 'December', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', '::1', '2017-01-29 11:22:54', '2017-01-29 18:22:54'),
-(361, 27, 2017, 'January', 6900000, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36', '::1', '2017-02-02 16:22:58', '2017-02-02 23:22:57'),
-(362, 27, 2017, 'February', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36', '::1', '2017-02-02 16:22:57', '2017-02-02 23:22:57'),
-(363, 27, 2017, 'March', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36', '::1', '2017-02-02 16:22:58', '2017-02-02 23:22:58'),
-(364, 27, 2017, 'April', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36', '::1', '2017-02-02 16:22:58', '2017-02-02 23:22:58'),
-(365, 27, 2017, 'May', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36', '::1', '2017-02-02 16:22:58', '2017-02-02 23:22:58'),
-(366, 27, 2017, 'June', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36', '::1', '2017-02-02 16:22:58', '2017-02-02 23:22:58'),
-(367, 27, 2017, 'July', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36', '::1', '2017-02-02 16:22:58', '2017-02-02 23:22:58'),
-(368, 27, 2017, 'August', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36', '::1', '2017-02-02 16:22:58', '2017-02-02 23:22:58'),
-(369, 27, 2017, 'September', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36', '::1', '2017-02-02 16:22:58', '2017-02-02 23:22:58'),
-(370, 27, 2017, 'October', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36', '::1', '2017-02-02 16:22:58', '2017-02-02 23:22:58'),
-(371, 27, 2017, 'November', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36', '::1', '2017-02-02 16:22:58', '2017-02-02 23:22:58'),
-(372, 27, 2017, 'December', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36', '::1', '2017-02-02 16:22:58', '2017-02-02 23:22:58');
+(1, 1, 2017, 'January', 560000, '726.06.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 OPR/45.0.2552.', '::1', '2017-06-01 06:47:00', '2017-06-01 13:47:00'),
+(2, 1, 2017, 'February', 0, '726.06.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 OPR/45.0.2552.', '::1', '2017-06-01 06:47:00', '2017-06-01 13:47:00'),
+(3, 1, 2017, 'March', 0, '726.06.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 OPR/45.0.2552.', '::1', '2017-06-01 06:47:00', '2017-06-01 13:47:00'),
+(4, 1, 2017, 'April', 0, '726.06.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 OPR/45.0.2552.', '::1', '2017-06-01 06:47:00', '2017-06-01 13:47:00'),
+(5, 1, 2017, 'May', 0, '726.06.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 OPR/45.0.2552.', '::1', '2017-06-01 06:47:00', '2017-06-01 13:47:00'),
+(6, 1, 2017, 'June', 0, '726.06.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 OPR/45.0.2552.', '::1', '2017-06-01 06:47:00', '2017-06-01 13:47:00'),
+(7, 1, 2017, 'July', 0, '726.06.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 OPR/45.0.2552.', '::1', '2017-06-01 06:47:00', '2017-06-01 13:47:00'),
+(8, 1, 2017, 'August', 0, '726.06.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 OPR/45.0.2552.', '::1', '2017-06-01 06:47:00', '2017-06-01 13:47:00'),
+(9, 1, 2017, 'September', 0, '726.06.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 OPR/45.0.2552.', '::1', '2017-06-01 06:47:00', '2017-06-01 13:47:00'),
+(10, 1, 2017, 'October', 0, '726.06.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 OPR/45.0.2552.', '::1', '2017-06-01 06:47:00', '2017-06-01 13:47:00'),
+(11, 1, 2017, 'November', 0, '726.06.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 OPR/45.0.2552.', '::1', '2017-06-01 06:47:00', '2017-06-01 13:47:00'),
+(12, 1, 2017, 'December', 0, '726.06.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 OPR/45.0.2552.', '::1', '2017-06-01 06:47:00', '2017-06-01 13:47:00'),
+(13, 1, 2017, 'January', 0, '724.04.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 OPR/45.0.2552.', '::1', '2017-06-01 06:47:17', '2017-06-01 13:47:17'),
+(14, 1, 2017, 'February', 2000000, '724.04.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 OPR/45.0.2552.', '::1', '2017-06-01 06:47:17', '2017-06-01 13:47:17'),
+(15, 1, 2017, 'March', 0, '724.04.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 OPR/45.0.2552.', '::1', '2017-06-01 06:47:17', '2017-06-01 13:47:17'),
+(16, 1, 2017, 'April', 0, '724.04.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 OPR/45.0.2552.', '::1', '2017-06-01 06:47:17', '2017-06-01 13:47:17'),
+(17, 1, 2017, 'May', 0, '724.04.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 OPR/45.0.2552.', '::1', '2017-06-01 06:47:17', '2017-06-01 13:47:17'),
+(18, 1, 2017, 'June', 0, '724.04.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 OPR/45.0.2552.', '::1', '2017-06-01 06:47:17', '2017-06-01 13:47:17'),
+(19, 1, 2017, 'July', 0, '724.04.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 OPR/45.0.2552.', '::1', '2017-06-01 06:47:17', '2017-06-01 13:47:17'),
+(20, 1, 2017, 'August', 0, '724.04.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 OPR/45.0.2552.', '::1', '2017-06-01 06:47:17', '2017-06-01 13:47:17'),
+(21, 1, 2017, 'September', 0, '724.04.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 OPR/45.0.2552.', '::1', '2017-06-01 06:47:17', '2017-06-01 13:47:17'),
+(22, 1, 2017, 'October', 0, '724.04.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 OPR/45.0.2552.', '::1', '2017-06-01 06:47:17', '2017-06-01 13:47:17'),
+(23, 1, 2017, 'November', 0, '724.04.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 OPR/45.0.2552.', '::1', '2017-06-01 06:47:17', '2017-06-01 13:47:17'),
+(24, 1, 2017, 'December', 0, '724.04.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 OPR/45.0.2552.', '::1', '2017-06-01 06:47:17', '2017-06-01 13:47:17'),
+(25, 2, 2017, 'January', 50000000, '726.03.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0', '::1', '2017-06-03 06:39:20', '2017-06-03 13:39:19'),
+(26, 2, 2017, 'February', 0, '726.03.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0', '::1', '2017-06-03 06:39:19', '2017-06-03 13:39:19'),
+(27, 2, 2017, 'March', 0, '726.03.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0', '::1', '2017-06-03 06:39:19', '2017-06-03 13:39:19'),
+(28, 2, 2017, 'April', 0, '726.03.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0', '::1', '2017-06-03 06:39:19', '2017-06-03 13:39:19'),
+(29, 2, 2017, 'May', 0, '726.03.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0', '::1', '2017-06-03 06:39:20', '2017-06-03 13:39:20'),
+(30, 2, 2017, 'June', 50000000, '726.03.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0', '::1', '2017-06-04 06:23:22', '2017-06-03 13:39:20'),
+(31, 2, 2017, 'July', 0, '726.03.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0', '::1', '2017-06-03 06:39:20', '2017-06-03 13:39:20'),
+(32, 2, 2017, 'August', 0, '726.03.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0', '::1', '2017-06-03 06:39:20', '2017-06-03 13:39:20'),
+(33, 2, 2017, 'September', 0, '726.03.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0', '::1', '2017-06-03 06:39:20', '2017-06-03 13:39:20'),
+(34, 2, 2017, 'October', 0, '726.03.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0', '::1', '2017-06-03 06:39:20', '2017-06-03 13:39:20'),
+(35, 2, 2017, 'November', 0, '726.03.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0', '::1', '2017-06-03 06:39:20', '2017-06-03 13:39:20'),
+(36, 2, 2017, 'December', 0, '726.03.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0', '::1', '2017-06-03 06:39:20', '2017-06-03 13:39:20'),
+(37, 2, 2017, 'January', 5900000, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0', '::1', '2017-06-03 08:29:45', '2017-06-03 15:29:44'),
+(38, 2, 2017, 'February', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0', '::1', '2017-06-03 08:29:44', '2017-06-03 15:29:44'),
+(39, 2, 2017, 'March', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0', '::1', '2017-06-03 08:29:44', '2017-06-03 15:29:44'),
+(40, 2, 2017, 'April', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0', '::1', '2017-06-03 08:29:44', '2017-06-03 15:29:44'),
+(41, 2, 2017, 'May', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0', '::1', '2017-06-03 08:29:44', '2017-06-03 15:29:44'),
+(42, 2, 2017, 'June', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0', '::1', '2017-06-03 08:29:44', '2017-06-03 15:29:44'),
+(43, 2, 2017, 'July', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0', '::1', '2017-06-03 08:29:44', '2017-06-03 15:29:44'),
+(44, 2, 2017, 'August', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0', '::1', '2017-06-03 08:29:44', '2017-06-03 15:29:44'),
+(45, 2, 2017, 'September', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0', '::1', '2017-06-03 08:29:44', '2017-06-03 15:29:44'),
+(46, 2, 2017, 'October', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0', '::1', '2017-06-03 08:29:44', '2017-06-03 15:29:44'),
+(47, 2, 2017, 'November', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0', '::1', '2017-06-03 08:29:44', '2017-06-03 15:29:44'),
+(48, 2, 2017, 'December', 0, '706.00.001', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0', '::1', '2017-06-03 08:29:44', '2017-06-03 15:29:44'),
+(49, 2, 2017, 'January', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36', '::1', '2017-06-04 06:19:01', '2017-06-04 13:19:01'),
+(50, 2, 2017, 'February', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36', '::1', '2017-06-04 06:19:01', '2017-06-04 13:19:01'),
+(51, 2, 2017, 'March', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36', '::1', '2017-06-04 06:19:01', '2017-06-04 13:19:01'),
+(52, 2, 2017, 'April', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36', '::1', '2017-06-04 06:19:01', '2017-06-04 13:19:01'),
+(53, 2, 2017, 'May', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36', '::1', '2017-06-04 06:19:01', '2017-06-04 13:19:01'),
+(54, 2, 2017, 'June', 35000000, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36', '::1', '2017-06-04 06:19:01', '2017-06-04 13:19:01'),
+(55, 2, 2017, 'July', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36', '::1', '2017-06-04 06:19:01', '2017-06-04 13:19:01'),
+(56, 2, 2017, 'August', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36', '::1', '2017-06-04 06:19:01', '2017-06-04 13:19:01'),
+(57, 2, 2017, 'September', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36', '::1', '2017-06-04 06:19:01', '2017-06-04 13:19:01'),
+(58, 2, 2017, 'October', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36', '::1', '2017-06-04 06:19:01', '2017-06-04 13:19:01'),
+(59, 2, 2017, 'November', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36', '::1', '2017-06-04 06:19:01', '2017-06-04 13:19:01'),
+(60, 2, 2017, 'December', 0, '704.00.001', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36', '::1', '2017-06-04 06:19:01', '2017-06-04 13:19:01');
 
 -- --------------------------------------------------------
 
@@ -368,6 +402,7 @@ CREATE TABLE IF NOT EXISTS `realization_tr` (
   `submit` varchar(50) NOT NULL,
   `activity` text NOT NULL,
   `amount` int(10) NOT NULL,
+  `year` int(5) NOT NULL,
   `ip_address` varchar(20) NOT NULL,
   `user_agent` varchar(50) NOT NULL,
   `create_date` datetime NOT NULL,
@@ -378,8 +413,8 @@ CREATE TABLE IF NOT EXISTS `realization_tr` (
 -- Dumping data for table `realization_tr`
 --
 
-INSERT INTO `realization_tr` (`id_realization`, `opex_trd_id`, `kode`, `username`, `submit`, `activity`, `amount`, `ip_address`, `user_agent`, `create_date`, `last_update`) VALUES
-(1, 205, 'KC', 'alhusna901@gmail.com', 'handoyo_division@gmail.com', 'jalan jalan ke monas se kantor', 590000, '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Geck', '2017-01-15 08:36:59', '2017-01-18 18:11:20');
+INSERT INTO `realization_tr` (`id_realization`, `opex_trd_id`, `kode`, `username`, `submit`, `activity`, `amount`, `year`, `ip_address`, `user_agent`, `create_date`, `last_update`) VALUES
+(1, 54, 'HD', 'alhusna901@gmail.com', '', 'beli 1 paket keyboard dan mouse gaming 10 buah ', 10000000, 2017, '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Geck', '2017-06-04 13:23:36', '2017-06-04 07:05:25');
 
 -- --------------------------------------------------------
 
@@ -400,14 +435,7 @@ CREATE TABLE IF NOT EXISTS `transfer_tr` (
   `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `user_agent` varchar(225) NOT NULL,
   `ip_address` varchar(16) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `transfer_tr`
---
-
-INSERT INTO `transfer_tr` (`trf_tr_id`, `opex_trd_id`, `opex_trd_id_to`, `no_account_trfto`, `budget`, `submit`, `kode`, `username`, `create_date`, `last_update`, `user_agent`, `ip_address`) VALUES
-(7, 217, 205, '', 5000000, '', 'KC', 'alhusna901@gmail.com', '2017-02-15 11:20:39', '2017-02-15 04:20:39', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0', '::1');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -425,17 +453,18 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `role`, `kode`, `photo`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'Aries Dimas Yushistira', 'alhusna901@gmail.com', 'admin', 'KC', 'alhusna901.jpg', '$2y$10$pgDLvU37nY0F7mKAv4120OnmCWXVKxSiD7HapVTO.Fbj2EnP277Tm', '2016-10-05 21:51:10', '2016-10-05 09:47:04'),
-(5, 'siti syarah', 'syarahsiti@gmail.com', 'department', 'KE', '', '$2y$10$k/tuO/aGq2UJyeT/XG5EqucNhRwLe48MBPPz4xz7dptsNgteAfgUi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1, 'Aries Dimas Yushistira', 'alhusna901@gmail.com', 'admin', 'HD', 'alhusna901.jpg', '$2y$10$pgDLvU37nY0F7mKAv4120OnmCWXVKxSiD7HapVTO.Fbj2EnP277Tm', '2016-10-05 21:51:10', '2016-10-05 09:47:04'),
+(5, 'siti syarah', 'syarahsiti@gmail.com', 'department', 'EB', '', '$2y$10$pgDLvU37nY0F7mKAv4120OnmCWXVKxSiD7HapVTO.Fbj2EnP277Tm', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (8, 'Marina', 'marina@gmail.com', 'department', 'KE', 'marina.jpg', '$2y$10$tc5/ARY86aVTFLNyBjSJ0OK4E5Lh1wnIG9khUX481aGCVVpduTzge', '2017-01-06 19:37:44', '2017-01-06 12:37:44'),
-(9, 'handoyo', 'handoyo_division@gmail.com', 'division', 'K', 'handoyo_division.PNG', '$2y$10$z5bP0AUDnu3HekFlyCR.jupMpsCmaWD3.X4lC0xQ8qfpEFEkpYlr6', '2017-01-15 08:53:19', NULL);
+(9, 'handoyo', 'handoyo_division@gmail.com', 'division', 'K', 'handoyo_division.PNG', '$2y$10$z5bP0AUDnu3HekFlyCR.jupMpsCmaWD3.X4lC0xQ8qfpEFEkpYlr6', '2017-01-15 08:53:19', NULL),
+(10, 'Muhammad Fadil Hakim', 'fadil.hakim@gmail.com', 'department', 'HD', 'fadil.hakim.', '$2y$10$hONLAS16dXSho5yGFVur/eNUtf4KUaa7xKucbPIWdER.dzTaVKsCG', '2017-06-03 10:36:06', NULL);
 
 --
 -- Indexes for dumped tables
@@ -452,6 +481,12 @@ ALTER TABLE `additional_tr`
 --
 ALTER TABLE `department_ms`
   ADD PRIMARY KEY (`kode_department`), ADD UNIQUE KEY `kode_department` (`kode_department`);
+
+--
+-- Indexes for table `detail_department_opex_acc`
+--
+ALTER TABLE `detail_department_opex_acc`
+  ADD PRIMARY KEY (`id_ddoa`);
 
 --
 -- Indexes for table `division_ms`
@@ -509,17 +544,22 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `additional_tr`
 --
 ALTER TABLE `additional_tr`
-  MODIFY `add_tr_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `add_tr_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `detail_department_opex_acc`
+--
+ALTER TABLE `detail_department_opex_acc`
+  MODIFY `id_ddoa` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=58;
 --
 -- AUTO_INCREMENT for table `opex_tr`
 --
 ALTER TABLE `opex_tr`
-  MODIFY `opex_trid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
+  MODIFY `opex_trid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `opex_tr_detail`
 --
 ALTER TABLE `opex_tr_detail`
-  MODIFY `opex_trd_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=373;
+  MODIFY `opex_trd_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=61;
 --
 -- AUTO_INCREMENT for table `realization_tr`
 --
@@ -529,12 +569,12 @@ ALTER TABLE `realization_tr`
 -- AUTO_INCREMENT for table `transfer_tr`
 --
 ALTER TABLE `transfer_tr`
-  MODIFY `trf_tr_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `trf_tr_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
