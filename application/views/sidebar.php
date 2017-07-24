@@ -45,21 +45,20 @@
                         <span class="clear"> <span class="block m-t-xs">
                         	<strong class="font-bold"><?=$name_session?></strong>
 
-<<<<<<< HEAD
+
                         </span></span>
-=======
+
                         </span>
->>>>>>> capex/master
+
 												<span><?=$department["department"]?>  </span>
                         <span class="text-muted text-xs block"><?=$role_session?>
                         <b class="caret"></b></span>
                     </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
-<<<<<<< HEAD
+
                         <li><a href="<?=base_url("users/update/$id_session")?>">Profile</a></li>
-=======
+
                         <li><a href="#">Profile</a></li>
->>>>>>> capex/master
 
                         <li class="divider"></li>
                         <li><a href="<?=base_url("users/users_process/logout")?>">Logout</a></li>
@@ -81,11 +80,7 @@
                     <li><a href="<?=base_url("opex/additional")?>">Additional</a></li>
                     <!-- <li><a href="<?=base_url("opex/transfer")?>"> Transfer / Switching </a></li> -->
                     <li><a href="<?=base_url("opex/realization")?>"> Realization </a></li>
-<<<<<<< HEAD
                     <li><a href="<?=base_url("opex/report")?>"> Report </a></li>
-
-=======
->>>>>>> capex/master
 
                 </ul>
             </li>
@@ -95,11 +90,10 @@
                 	<li><a href="<?=base_url("master/opex_account")?>"> Opex Account </a></li>
                 	<!-- <li><a href="<?=base_url("master/division");?>"> Division </a></li>
                     <li ><a href="<?=base_url("master/department")?>"> Department </a></li>
-<<<<<<< HEAD
+
                     <li><a href="<?=base_url("users/user_list")?>"> Users </a></li> -->
-=======
                     <li><a href="<?=base_url("users/user_list")?>"> Users </a></li>
->>>>>>> capex/master
+
 
                 </ul>
 
