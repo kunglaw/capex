@@ -46,18 +46,32 @@
                         	<strong class="font-bold"><?=$name_session?></strong>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                         </span></span>
 =======
                         </span>
 >>>>>>> capex/master
+=======
+
+                        </span></span>
+
+                        </span>
+
+>>>>>>> 773dd887ed641489985fe37ccd2a42f38c565af1
 												<span><?=$department["department"]?>  </span>
                         <span class="text-muted text-xs block"><?=$role_session?>
                         <b class="caret"></b></span>
                     </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <li><a href="<?=base_url("users/update/$id_session")?>">Profile</a></li>
 =======
+=======
+
+                        <li><a href="<?=base_url("users/update/$id_session")?>">Profile</a></li>
+
+>>>>>>> 773dd887ed641489985fe37ccd2a42f38c565af1
                         <li><a href="#">Profile</a></li>
 >>>>>>> capex/master
 
@@ -82,10 +96,14 @@
                     <!-- <li><a href="<?=base_url("opex/transfer")?>"> Transfer / Switching </a></li> -->
                     <li><a href="<?=base_url("opex/realization")?>"> Realization </a></li>
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <li><a href="<?=base_url("opex/report")?>"> Report </a></li>
 
 =======
 >>>>>>> capex/master
+=======
+                    <li><a href="<?=base_url("opex/report")?>"> Report </a></li>
+>>>>>>> 773dd887ed641489985fe37ccd2a42f38c565af1
 
                 </ul>
             </li>
@@ -96,10 +114,16 @@
                 	<!-- <li><a href="<?=base_url("master/division");?>"> Division </a></li>
                     <li ><a href="<?=base_url("master/department")?>"> Department </a></li>
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <li><a href="<?=base_url("users/user_list")?>"> Users </a></li> -->
 =======
+=======
+
+                    <li><a href="<?=base_url("users/user_list")?>"> Users </a></li> -->
+>>>>>>> 773dd887ed641489985fe37ccd2a42f38c565af1
                     <li><a href="<?=base_url("users/user_list")?>"> Users </a></li>
 >>>>>>> capex/master
+
 
                 </ul>
 
