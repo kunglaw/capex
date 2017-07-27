@@ -40,4 +40,14 @@
 		
 		
 		
+		function view_session()
+		{
+			$aa = $this->session->userdata("all_userdata");
+			
+			print_r($aa);	
+			
+		}
+		
+		
+		
 	}

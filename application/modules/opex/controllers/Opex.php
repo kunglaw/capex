@@ -1,6 +1,10 @@
 <?php
 
+<<<<<<< HEAD
 	class Opex extends MX_COntroller{
+=======
+	class Opex extends MX_Controller{
+>>>>>>> 323349418b9b8417436b675582b6042f929c3321
 
 		private $role_sess;
 

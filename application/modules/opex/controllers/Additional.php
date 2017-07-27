@@ -146,6 +146,10 @@
 				$arr["kode"] 		= $kode;
 				$arr["budget"] 		= $budget;
 				$arr["reason"]		= $reason;
+<<<<<<< HEAD
+=======
+				$arr["year"]		= $year;
+>>>>>>> 323349418b9b8417436b675582b6042f929c3321
 				
 				$this->am->insert_additional($arr);
 				
@@ -200,6 +204,10 @@
 				$arr["kode"] 		= $kode;
 				$arr["budget"] 		= $budget;
 				$arr["reason"]		= $reason;
+<<<<<<< HEAD
+=======
+				$arr["year"]		= $year;
+>>>>>>> 323349418b9b8417436b675582b6042f929c3321
 				
 				$this->am->update_additional($arr);
 				

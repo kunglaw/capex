@@ -45,13 +45,43 @@
                         <span class="clear"> <span class="block m-t-xs">
                         	<strong class="font-bold"><?=$name_session?></strong>
 
+<<<<<<< HEAD
                         </span></span>
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+                        </span></span>
+=======
+                        </span>
+>>>>>>> capex/master
+=======
+
+                        </span></span>
+
+                        </span>
+
+>>>>>>> 773dd887ed641489985fe37ccd2a42f38c565af1
+>>>>>>> 323349418b9b8417436b675582b6042f929c3321
 												<span><?=$department["department"]?>  </span>
                         <span class="text-muted text-xs block"><?=$role_session?>
                         <b class="caret"></b></span>
                     </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
+<<<<<<< HEAD
                         <li><a href="<?=base_url("users/update/$id_session")?>">Profile</a></li>
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+                        <li><a href="<?=base_url("users/update/$id_session")?>">Profile</a></li>
+=======
+=======
+
+                        <li><a href="<?=base_url("users/update/$id_session")?>">Profile</a></li>
+
+>>>>>>> 773dd887ed641489985fe37ccd2a42f38c565af1
+                        <li><a href="#">Profile</a></li>
+>>>>>>> capex/master
+>>>>>>> 323349418b9b8417436b675582b6042f929c3321
 
                         <li class="divider"></li>
                         <li><a href="<?=base_url("users/users_process/logout")?>">Logout</a></li>
@@ -73,8 +103,20 @@
                     <li><a href="<?=base_url("opex/additional")?>">Additional</a></li>
                     <!-- <li><a href="<?=base_url("opex/transfer")?>"> Transfer / Switching </a></li> -->
                     <li><a href="<?=base_url("opex/realization")?>"> Realization </a></li>
+<<<<<<< HEAD
                     <li><a href="#"> Report </a></li>
 
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+                    <li><a href="<?=base_url("opex/report")?>"> Report </a></li>
+
+=======
+>>>>>>> capex/master
+=======
+                    <li><a href="<?=base_url("opex/report")?>"> Report </a></li>
+>>>>>>> 773dd887ed641489985fe37ccd2a42f38c565af1
+>>>>>>> 323349418b9b8417436b675582b6042f929c3321
 
                 </ul>
             </li>
@@ -84,7 +126,21 @@
                 	<li><a href="<?=base_url("master/opex_account")?>"> Opex Account </a></li>
                 	<!-- <li><a href="<?=base_url("master/division");?>"> Division </a></li>
                     <li ><a href="<?=base_url("master/department")?>"> Department </a></li>
+<<<<<<< HEAD
                     <li><a href="<?=base_url("users/user_list")?>"> Users </a></li> -->
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+                    <li><a href="<?=base_url("users/user_list")?>"> Users </a></li> -->
+=======
+=======
+
+                    <li><a href="<?=base_url("users/user_list")?>"> Users </a></li> -->
+>>>>>>> 773dd887ed641489985fe37ccd2a42f38c565af1
+                    <li><a href="<?=base_url("users/user_list")?>"> Users </a></li>
+>>>>>>> capex/master
+
+>>>>>>> 323349418b9b8417436b675582b6042f929c3321
 
                 </ul>
 

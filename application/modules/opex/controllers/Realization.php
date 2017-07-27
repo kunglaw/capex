@@ -18,7 +18,7 @@
 			
 			$data["title"] = "Realization List";
 			$data["header_title"] = "Realization List";
-			if(empty($role_sess))
+			if($role_sess == "department" || $role_sess == "admin")
 			{
 				$data["js_top"] = "opex/js_top";
 				$data["js_under"] = "opex/js_under";
@@ -149,6 +149,7 @@
 			$kode 		 = $this->input->post("kode_department",TRUE);
 			$amount 	 = $this->input->post("amount",TRUE);
 			$activity	 = $this->input->post("activity",TRUE);
+			$year 		 = $this->input->post("year",TRUE);
 			
 			$this->form_validation->set_rules("opex_trd_id","Opex Trd id","required");
 			$this->form_validation->set_rules("amount","Amount","required|integer");
@@ -172,6 +173,7 @@
 			   $arr["amount"] 		   = $amount;
 			   $arr["activity"] 	   = $activity;
 			   $arr["opex_trd_id"]	   = $opex_trd_id;
+			   $arr["year"]			   = $year;
 			   
 			   $this->realization_model->add_realization($arr);
 					
@@ -210,6 +212,7 @@
 			$kode 		 = $this->input->post("kode_department",TRUE);
 			$amount 	 = $this->input->post("amount",TRUE);
 			$activity	 = $this->input->post("activity",TRUE);
+			$year		 = $this->input->post("year",TRUE);
 			
 			$this->form_validation->set_rules("id_realization","Id Realization","required");
 			$this->form_validation->set_rules("opex_trd_id","Opex Trd id","required");
@@ -234,6 +237,7 @@
 			   $arr["amount"] 		   = $amount;
 			   $arr["activity"] 	   = $activity;
 			   $arr["opex_trd_id"]	   = $opex_trd_id;
+			   $arr["year"]			   = $year;
 			   
 			   $this->realization_model->update_realization($arr);
 					

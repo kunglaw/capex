@@ -289,6 +289,57 @@
 			
 		}
 		
+		// total per bulan, di tahun yg sama , dan user yg sama
+		function total_month_peryear($month,$year)
+		{
+			$kode_department = $this->session->userdata("kode");
+			
+			$str_opex_trid = "SELECT * FROM opex_tr WHERE year = '$year' AND kode_department = '$kode_department' ";
+			$q = $this->db->query($str_opex_trid);
+			$f = $q->row_array();
+			
+			$str = "SELECT SUM(budget) as total_month FROM opex_tr_detail WHERE opex_trid = '$f[opex_trid]' AND month = '$month' ";
+			$q2 = $this->db->query($str);
+			$f2 = $q2->row_array();
+			
+			return $f2["total_month"];
+			
+			
+			
+		}
+		
+		// total satu akun , per tahun , dan user yang sama 
+		function total_account_peryear($no_acc_opex,$year)
+		{
+			$kode_department = $this->session->userdata("kode");
+			
+			
+			
+			
+			$str = "SELECT SUM(a.budget) as total_account FROM opex_tr_detail a, opex_tr b WHERE a.year = '$year' AND a.opex_trid = b.opex_trid AND a.no_acc_opex = '$no_acc_opex' AND b.kode_department = '$kode_department' ";
+			
+			$q2 = $this->db->query($str);
+			$f2 = $q2->row_array();
+			
+			return $f2["total_account"];
+			
+		}
+		
+		// total semua akun di tahun yang sama
+		function total_all_year($year)
+		{
+			$kode_department = $this->session->userdata("kode");
+			
+			$str = "SELECT SUM(budget) as total_year FROM opex_tr_detail a, opex_tr b WHERE a.year = '$year' AND a.opex_trid = b.opex_trid AND b.kode_department = '$kode_department' ";
+			$q= $this->db->query($str);
+			$f = $q->row_array();
+			
+			return $f["total_year"];	
+			
+			
+		}
+		
+		
 		function update_month_budget($arr)
 		{
 			$month = $arr["month"];
