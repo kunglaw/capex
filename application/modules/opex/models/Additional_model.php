@@ -57,6 +57,7 @@
 			$opex_trd_id = $arr["opex_trd_id"];
 			$kode 		 = $arr["kode"];
 			$budget		 = $arr["budget"];
+			$reason		 = $arr["reason"];
 			
 			$username 	 = $this->session->userdata("email");
 			$user_agent  = $this->input->user_agent();
@@ -65,6 +66,7 @@
 			
 			$str  = "INSERT additional_tr SET 			 ";
 			$str .= "opex_trd_id = '$opex_trd_id'		,";
+			$str .= "reason		 = '$reason'			,";
 			$str .= "budget		 = '$budget'			,";
 			$str .= "kode		 = '$kode'				,";
 			$str .= "username	 = '$username'			,";
@@ -84,6 +86,7 @@
 			$opex_trd_id = $arr["opex_trd_id"];
 			$kode 		 = $arr["kode"];
 			$budget		 = $arr["budget"];
+			$reason		 = $arr["reason"];
 			
 			$username 	 = $this->session->userdata("email");
 			$user_agent  = $this->input->user_agent();
@@ -92,6 +95,7 @@
 			
 			$str  = "UPDATE additional_tr SET 			 ";
 			$str .= "opex_trd_id = '$opex_trd_id'		,";
+			$str .= "reason		 = '$reason'			,";
 			$str .= "budget		 = '$budget'			,";
 			$str .= "kode		 = '$kode'				,";
 			$str .= "username	 = '$username'			,";

@@ -2,6 +2,9 @@
 <div class="row wrapper">
     <div class="row wrapper">
     	
+        <a class="btn btn-primary" id="add-additional-btn"> Add Additional</a>
+        <span class="clearfix"></span>
+        
         <div id="additional-temp"></div>
         
         <table class="table table-bordered table-stripped" id="department-table">

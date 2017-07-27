@@ -14,6 +14,7 @@
 			success: function(data)
 			{
 				$("#opex_trd_id").val(data.opex_trd_id);
+				$("#reason").val(data.reason);
 				
 			}
 			
@@ -42,19 +43,37 @@
                 
                 <div class="form-group">
                 	<label> Opex Account </label>
-                    
+                    <?php
+						$dept = $this->opex_model->opex_ms_department_list();
+						foreach($dept as $dept2)
+						   {
+								$dept3[] = $dept2["no_acc_opex"];
+						   }
+				
+					?>
                     <select name="opex_account" id="opex_account" class="form-control">
                       <?php 
 					  	if(!empty($opex_acc))
 						{
-						foreach($opex_acc as $row){ 
+						   
+						   
+						   
+						   	
+						   foreach($opex_acc as $row){ 
 					  		
-							$opex_ms = $this->opex_model->opex_ms_detail($row["no_acc_opex"]);
+							
+							
+							if(in_array($row["no_acc_opex"],$dept3))
+							{
+							
+								$opex_ms = $this->opex_model->opex_ms_detail($row["no_acc_opex"]);
 							
 					  ?>	
-                        <option value="<?=$row["no_acc_opex"]?>"> <?=$opex_ms["detail"]?></option>
-                      <?php } 
-						}
+                        <option value="<?=$row["no_acc_opex"]?>"> <?=$row["no_acc_opex"]?> - <?=$opex_ms["detail"]?></option>
+                      <?php 
+							}// if department acc account 
+					  	  } //foreach
+						}// if
 						else
 						{
 					  ?>
@@ -80,6 +99,10 @@
                       <label> Amount Budget </label>
                       <input type="text" name="budget" value="" class="form-control">
                   </div>
+                </div>
+                <div class="form-group">
+                  <label> Reason </label>
+                  <input type="text" name="reason" id="reason" class="form-control">
                 </div>
                  <span class="clearfix"></span>
               </div>

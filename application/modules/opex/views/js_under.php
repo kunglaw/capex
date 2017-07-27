@@ -5,6 +5,11 @@
 	$this_year = date("Y") + 3;
 
 ?>
+<style>
+.dataTables_length label {
+    margin:0 20px 0 0;
+}
+</style>
 <script>
 	$(document).ready(function() {
 		
@@ -36,8 +41,8 @@
 		
 		$("#opex-detail-table").dataTable({
 			
-			searching:true,
-			
+			searching:false,
+			"sDom": 'Rfrtlip',
 			paging:         true,
 			sorting:		true,
 			fixedColumns:   {
@@ -72,8 +77,8 @@
 			data:"year="+<?=$year_uri?>,
 			success: function(dt)
 			{
-				$(".opex-temp").html("");
-				$(".opex-temp").html(dt);	
+				$("#additional-temp").html("");
+				$("#additional-temp").html(dt);	
 				
 			}
 			

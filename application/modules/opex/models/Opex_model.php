@@ -151,6 +151,18 @@
 			$q = $this->db->query($str);
 			$f = $q->result_array();
 			
+			return $f;
+		}
+		
+		// NUNGGU KERJAANNYA ARA
+		function opex_ms_department_list()
+		{
+			$kode_department = $this->session->userdata("kode");
+			
+			$str = "SELECT * FROM detail_department_opex_acc WHERE kode_department = '$kode_department' ";
+			$q = $this->db->query($str);
+			$f = $q->result_array($q);
+			
 			return $f;	
 			
 		}

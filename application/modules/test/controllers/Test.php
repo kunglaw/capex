@@ -31,4 +31,12 @@ class Test extends CI_Controller{
 		
 		$this->load->view("dummy/loading-state");
     }
+	
+	function view_session()
+	{
+		$aa = $this->session->all_userdata();
+			
+			print_r($aa);	
+				
+	}
 }
